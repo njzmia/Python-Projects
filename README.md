@@ -44,7 +44,7 @@ You can install the required packages using the command:
 pip install -r requirements.txt
 ```
 
-Installation
+## Installation
 1. Clone the repository:
 ```bash
 git clone https://github.com/yourusername/la-crime-data-analysis.git
@@ -61,7 +61,7 @@ pip install -r requirements.txt
 ```bash
 jupyter notebook
 ```
-Usage
+## Usage
 Once you open the Jupyter Notebook, you can run the cells sequentially to:
 
 + Load and clean the crime data
@@ -82,6 +82,7 @@ df.sort_values(by = 'DATE OCC')
 ### Plot of crimes over time by year & month
 crime_over_time = df.groupby(['year', 'month']).size().plot()
 ```
+![Crime trends over the years](https://github.com/njzmia/Python-Projects/blob/main/crime_over_time.png)
 + Distribution of crime according to victim age
 ```python
 #Finding counts of victim ages
@@ -93,6 +94,7 @@ df_age['Vict Age'].value_counts()
 
 plt.hist(df_age['Vict Age'], edgecolor='white', bins=15)
 ```
+![Victim Age](https://github.com/njzmia/Python-Projects/blob/main/age_plot.png)
 + Distribution of highest crime areas during a period of time
 ```python
 # area with highest number of crimes during nighttime 8pm
@@ -106,6 +108,7 @@ top_10_areas_sorted = top_10_areas.sort_values(by='avg_daily_count', ascending=T
 
 plt.barh(top_10_areas_sorted['AREA NAME'], top_10_areas_sorted['avg_daily_count'])
 ```
+![Crime Areas](https://github.com/njzmia/Python-Projects/blob/main/full_dash1.png)
 + Distribution of crime types (e.g., burglary, assault, theft)
 ```python
 crime_count_per_day = df.groupby(by = [df['DATE OCC'], 'Crm Cd Desc']).size()
@@ -117,6 +120,7 @@ top_20_crimes_sorted = top_20_crimes.sort_values(by='avg_daily_count', ascending
 
 plt.barh(top_20_crimes_sorted['Crm Cd Desc'], top_20_crimes_sorted['avg_daily_count'])
 ```
+![Top 20 Crimes](https://github.com/njzmia/Python-Projects/blob/main/full_dash2.png)
 The results are visualized using bar charts, line plots, and heatmaps for better understanding of the data.
 
 ## Contributing
